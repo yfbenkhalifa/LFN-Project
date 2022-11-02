@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}	% Para caracteres en español
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{multirow,booktabs}
+\usepackage[table]{xcolor}
+\usepackage{fullpage}
+\usepackage[bottom]{footmisc}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{calc}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\usepackage{empheq}
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\colorlet{shadecolor}{orange!15}
+\parindent 0in
+\parskip 12pt
+\geometry{margin=1in, headsep=0.25in}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtcbtheorem[auto counter,number within=section]{theorem}%
+  {Theorem}{fonttitle=\bfseries\upshape, fontupper=\slshape,
+     arc=0mm, colback=blue!5!white,colframe=red!75!black}{defn}
+
+\newtcbtheorem[auto counter,number within=section]{defn}%
+    {Definition}{fonttitle=\bfseries\upshape, fontupper=\slshape,
+    arc=0mm, colback=blue!5!white,colframe=green!75!black}{defn}
+
+\newtheorem{reg}{Rule}
+\newtcbtheorem[auto counter,number within=section]{proposition}%
+{Proposition}{fonttitle=\bfseries\upshape, fontupper=\slshape,
+    arc=0mm, colback=blue!5!white,colframe=blue!75!black}{proposition}
+\newtcbtheorem[auto counter,number within=section]{lemma}%
+{Lemma}{fonttitle=\bfseries\upshape, fontupper=\slshape,
+    arc=0mm, colback=blue!5!white,colframe=yellow!75!black}{lemma}
+    
+\newtheorem{exer}{Exercise}
+\numberwithin{equation}{section}
+
+\numberwithin{definition}{section}
