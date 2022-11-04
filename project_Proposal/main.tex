@@ -1,14 +1,28 @@
 \include{struct.tex}
-\title{Learning From Networks Project Proposal}
+\title{Popular Erasmus destinations}
 \author{Alessandro Lotta, Youssef Ben Khalifa, Yong Xiangji}
 \date{\today}
 \begin{document}
 \maketitle \tableofcontents 
 \listofalgorithms
 \newpage
-\section{Introduction}
-
 \section{Motivation}
+    The goal of this project is to analyze and identify the most popular Erasmus destinations at the university level. This particular analysis
+    can be useful for students who are planning to go abroad for their Erasmus experience, but also for the universities that want to find out 
+    how they compare to the other universities around the world in terms of popularity. 
+\subsection{Dataset description}
+    The datasets we used for the project were found on the \textit{Official European Data} portal, where for each record, were specified:
+    \begin{itemize}
+        \item Departing country;
+        \item Destination country;
+        \item Type of Erasmus (Junior student, Senior student, Staff, Trainees ecc.);
+        \item Reference Period;
+    \end{itemize}
+    The datasets were provided as separate .csv files, one for each year from starting from 2014 to 2019, for a total of 6 files and roughly $160.000$ records.
+    Due to the large amount of data, we decided to focus on the most recent years, from 2017 to 2019, and consider only Senior university students. All the data we decide 
+    to use will be properly pre-processed and sampled, in order to obtain a more manageable dataset. 
+\subsection{Graph Model}
+    The graph is modelled using the various universities as nodes, and the edges are weighted by the number of students that went to that university.
 
 \section{Methods Adopted}
 

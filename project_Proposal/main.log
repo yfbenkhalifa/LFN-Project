@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8) (preloaded format=pdflatex 2022.8.17)  2 NOV 2022 19:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8) (preloaded format=pdflatex 2022.8.17)  4 NOV 2022 17:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -858,17 +858,17 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 AED: lastpage setting LastPage
 [2] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 24336 strings out of 477992
- 516440 string characters out of 2827466
- 829815 words of memory out of 3000000
- 42652 multiletter control sequences out of 15000+600000
- 475910 words of font info for 54 fonts, out of 8000000 for 9000
+ 24349 strings out of 477992
+ 516641 string characters out of 2827466
+ 832804 words of memory out of 3000000
+ 42663 multiletter control sequences out of 15000+600000
+ 478317 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  106i,7n,109p,527b,261s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on main.pdf (2 pages, 76179 bytes).
+ <C:\Users\yfben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/yfben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (2 pages, 109692 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
