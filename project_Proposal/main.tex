@@ -1,4 +1,5 @@
 \include{struct.tex}
+\usepackage{hyperref}
 \title{Popular Erasmus destinations}
 \author{Alessandro Lotta, Youssef Ben Khalifa, Yong Xiangji}
 \date{\today}
@@ -25,7 +26,18 @@
     The graph is modelled using the various universities as nodes, and the edges are weighted by the number of students that went to that university.
 
 \section{Methods Adopted}
+    Our goal is to find the most important nodes in the network, to do so we are going to employ techniques and metrics used in social network analysis. 
+    In particular we are going to use the PageRank algorithm and HITS link analysis algorithm.
+    \\Page Rank is used to rank each node in the network by giving a score of importance, in which the most important nodes are the ones that have a high number of incoming edges.
+    \\HITS algorithm is used to identify the most important hub and authority institutions in the Erasmus program. Hubs are institutions with a 
+    high quantity of people moving out of there, authorities instead are institutions in which there is a big quantity of incoming people.
+    \\
+    At the end we are going to compare the results obtained using both the algorithms.
+    \\If they don't work we will use approximation... 
 
 \section{Intended Experiments}
+    The implementations for the PageRank is available at \href{https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html}{\color{blue}this link}, 
+    it is based in the python NetworkX library and it provides also ways of applying the approximate PageRank algorithm by adjusting specified values. 
+    The implementation for HITS algorithm is also part of the NetworkX library, it can be found \href{https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.hits_alg.hits.html}{\color{blue}here}
 
 \end{document}
