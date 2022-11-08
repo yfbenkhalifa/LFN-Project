@@ -23,7 +23,13 @@
     Due to the large amount of data, we decided to focus on the most recent years, from 2017 to 2019, and consider only Senior university students. All the data we decide 
     to use will be properly pre-processed and sampled, in order to obtain a more manageable dataset. 
 \subsection{Graph Model}
-    The graph is modelled using the various universities as nodes, and the edges are weighted by the number of students that went to that university.
+    Throughout the project we may use different graph models, depending on the analysis we want to perform. The main graph model will be modelled using the various universities as nodes, and the edges are weighted by the number of students that went to that university. The resulting graph will be 
+    a directed graph, in which each edge is defined by the starting node, that represents the university from which the student departed, and the ending node, that represents the university 
+    where the student went.
+    On each node will then be specified various attributes, like the name of the university, the country it is located in, the number of students that went there.
+    \\
+    Another graph may be modelled using the countries as nodes instead of the universities: this particular graph can be used to measure the amount of ingoing and outgoing students from a country, 
+    and can be used to identify the most popular countries for Erasmus students.   
 
 \section{Methods Adopted}
     Our goal is to find the most important nodes in the network, to do so we are going to employ techniques and metrics used in social network analysis. 
@@ -33,11 +39,17 @@
     high quantity of people moving out of there, authorities instead are institutions in which there is a big quantity of incoming people.
     \\
     At the end we are going to compare the results obtained using both the algorithms.
-    \\If they don't work we will use approximation... 
+    \\If they don't work we will use approximation algorithms to find the most important nodes in the network. 
+    One idea is to adopt sampling on the existing graphs before applying the mentioned algorithms. 
 
 \section{Intended Experiments}
     The implementations for the PageRank is available at \href{https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html}{\color{blue}this link}, 
     it is based in the python NetworkX library and it provides also ways of applying the approximate PageRank algorithm by adjusting specified values. 
     The implementation for HITS algorithm is also part of the NetworkX library, it can be found \href{https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.hits_alg.hits.html}{\color{blue}here}
-
+    \\
+    We will be running the algorithms on two different machines:
+    \begin{enumerate}
+        \item A laptop with an AMD Ryzen 9 5900HS CPU @ 3.00 GHz, Nvidia RTX 3060 (Mobile) Dedicated GPU, 16GB of RAM;
+        \item A Macbook Pro (2020) with M1 chip;
+    \end{enumerate}
 \end{document}
