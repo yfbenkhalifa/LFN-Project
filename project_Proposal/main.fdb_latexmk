@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1667898493 "c:/Users/yfben/OneDrive/Documenti/GitHub/LFN-Project/project_Proposal/main.tex" "main.pdf" "main" 1667898498
+["pdflatex"] 1667898974 "c:/Users/yfben/OneDrive/Documenti/GitHub/LFN-Project/project_Proposal/main.tex" "main.pdf" "main" 1667898979
   "C:/Users/yfben/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1667898490 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/yfben/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1660742198 12668 eb42741a6a9609d88bfa485ac6f95684 ""
   "C:/Users/yfben/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1660742193 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -213,12 +213,12 @@
   "C:/Users/yfben/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/yfben/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/yfben/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656233290 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Users/yfben/OneDrive/Documenti/GitHub/LFN-Project/project_Proposal/main.tex" 1667898391 4214 53cd25d7ae4eaedc4c4dd982b7d0b34c ""
-  "main.aux" 1667898497 1229 3b7a8511cfade3e14c15332eead1326b "pdflatex"
+  "c:/Users/yfben/OneDrive/Documenti/GitHub/LFN-Project/project_Proposal/main.tex" 1667898887 4500 02757441a07c96a7b5b165e8d5ea3204 ""
+  "main.aux" 1667898978 1229 3b7a8511cfade3e14c15332eead1326b "pdflatex"
   "main.loa" 0 -1 0 "pdflatex"
-  "main.out" 1667898497 630 a35c3dcbfa2f1b2264cacad8a8041dc4 "pdflatex"
-  "main.tex" 1667898391 4214 53cd25d7ae4eaedc4c4dd982b7d0b34c ""
-  "main.toc" 1667898497 375 f565a348392fe855594055894b5767f2 "pdflatex"
+  "main.out" 1667898978 630 a35c3dcbfa2f1b2264cacad8a8041dc4 "pdflatex"
+  "main.tex" 1667898887 4500 02757441a07c96a7b5b165e8d5ea3204 ""
+  "main.toc" 1667898978 375 f565a348392fe855594055894b5767f2 "pdflatex"
   "struct.tex" 1656941110 1801 1fda3e095cb8e8d9d7ee2f4a121e7834 ""
   (generated)
   "main.aux"
