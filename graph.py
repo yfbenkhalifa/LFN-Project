@@ -49,3 +49,11 @@ class CustomGraph(Graph):
     def clear(self):
         super().clear()
         self.fh.write("Clear graph\n")
+        
+    def addCountryNodes(self, countries):
+        for country in countries:
+            self.add_node(country, country=country)
+            
+    def addUniversityNodes(self, universities):
+        for university in universities:
+            self.add_node(university, university=university)

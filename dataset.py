@@ -33,6 +33,12 @@ class Dataset:
         
     def cleanDataframe(self):
         self.df = utils.cleanDataframe(self.df)
+        
+    def getCountryNodes(self):
+        return self.df["Receiving Country Code"].unique()
+        
+    def getUniversitiesNodes(self):
+        return self.df["Receiving Organization"].unique()
          
     def applyPreprocessing(self):
         self.df.drop(["Mobility Duration", "Education Level", "Special Needs", "Fewer Opportunities", "GroupLeader",
@@ -44,6 +50,11 @@ class Dataset:
         self.df["Receiving Organization"] = self.df["Receiving Organization"].str.upper()
         self.df["Sending Country Code"] = self.df["Sending Country Code"].str.upper()
         self.df["Receiving Country Code"] = self.df["Receiving Country Code"].str.upper()
+    
+    def applyFilter(self, column, value, maxrows=None):
+        if maxrows is not None:
+            self.df = self.df.head(maxrows)
+        self.df = self.df[self.df[column] == value]
             
     
                 
