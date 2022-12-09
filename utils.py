@@ -1,7 +1,5 @@
 import csv
 import pandas
-from rdflib import Graph, Literal, RDF, URIRef, Namespace
-from rdflib.namespace import FOAF, XSD
 
 class Utilities:
     def __init__(self):
