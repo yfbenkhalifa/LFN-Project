@@ -1,0 +1,20 @@
+\include{struct.tex}
+\usepackage{hyperref}
+\usepackage{xurl}
+\title{Popular Erasmus destinations}
+\author{Alessandro Lotta, Youssef Ben Khalifa, Yongxiang Ji}
+\date{\today}
+\begin{document}
+\maketitle \tableofcontents 
+\newpage
+\section{Progress of the Project}
+    Until now we processed the dataset by scraping the '.csv' files, saving the data in a pandas' DataFrame, dropping row lacking of relevant information and filtering the DataFrame to have only rows about students.
+    \\Then we created the class 'CustumGraph' that represents our graphs. As said in the project proposal we will have two graphs, one having countries as nodes and the other one having universities as nodes.
+    
+\section{Changes}
+    Depending on the quantity of data we would like to split students into Bachelor students and Master students to have more interesting information. It can be done by filtering the field 'Education Level' in which each level has a code, the ones we are interested are 'ISCED-6', 'ISCED-7' and 'ISCED-8', representing Bachelor, Master and Doctoral students.
+    
+\section{Next Step}
+    Out next step is to populate the graphs with students as edges and analyze the data.
+    \\First we will do a general analysis on the number of students moving from one place to another using PageRank and HITS algorithm, the data are enough we will do a more precise analysis on 'Field of Education' or other interesting fields.
+\end{document}
