@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import pandas as pd
 import networkx as nx
+import numpy as np
 from utils import Utilities as utils
 
 class Dataset:
@@ -35,10 +36,12 @@ class Dataset:
         self.df = utils.cleanDataframe(self.df)
         
     def getCountryNodes(self):
-        return self.df["Receiving Country Code"].unique()
+        return np.array(list(set.union(set(self.df["Receiving Country Code"]),set(self.df["Sending Country Code"]))))
+
         
     def getUniversitiesNodes(self):
-        return self.df["Receiving Organization"].unique()
+        return np.array(list(set.union(set(self.df["Receiving Organization"]),set(self.df["Sending Organization"]))))
+
          
     def applyPreprocessing(self):
         self.df.drop(["Mobility Duration", "Education Level", "Special Needs", "Fewer Opportunities", "GroupLeader",
