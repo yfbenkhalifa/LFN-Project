@@ -9,11 +9,14 @@ class Dataset:
     dataframes = {}
     namespaces = {}
     sources = []
-    df = None
+    deleted : pd.DataFrame = None
+    df : pd.DataFrame = None
+    original_df : pd.DataFrame = None
     base_path = str(Path(os.path.abspath(os.getcwd())))
             
     def addDataset(self, filePath, name=''):
-        df = utils.creteDataframe(filePath)
+        
+        df = original_df = utils.creteDataframe(filePath)
         utils.cleanDataframe(df)
         if df is None:
             print('Error: File not found or not valid')
@@ -33,7 +36,9 @@ class Dataset:
         self.df = pd.concat(frames) 
         
     def cleanDataframe(self):
+        size = self.df.shape[0]
         self.df = utils.cleanDataframe(self.df)
+        print("Removed " + str(size - self.df.shape[0]) + " rows")
         
     def getCountryNodes(self):
         return np.array(list(set.union(set(self.df["Receiving Country Code"]),set(self.df["Sending Country Code"]))))
@@ -43,26 +48,60 @@ class Dataset:
         return np.array(list(set.union(set(self.df["Receiving Organization"]),set(self.df["Sending Organization"]))))
 
          
-    def applyPreprocessing(self):
-        self.df.drop(["Mobility Duration", "Special Needs", "Fewer Opportunities", "GroupLeader",
-                     "Sending Organisation Erasmus Code", "Receiving Organisation Erasmus Code"], axis=1, inplace=True)
-        #for x in ["ISCED-6", "ISCED-7", "ISCED-8"]:
-        #    self.df = self.df[self.df["Education Level"].str.contains(x)]
-        self.df.drop("Education Level", axis=1, inplace=True)
-        self.df = self.df[self.df["Participant Profile"] == "Learner"]
-        self.df = self.df[self.df["Activity (mob)"].str.contains("Student")]
-        self.df = self.df[~self.df['Activity (mob)'].str.contains('traineeship')]
-        self.df = self.df.loc[:, ["Sending Organization", "Receiving Organization", "Participants", "Sending Country Code", "Receiving Country Code"]]
-        self.df["Sending Organization"] = self.df["Sending Organization"].str.upper()
-        self.df["Receiving Organization"] = self.df["Receiving Organization"].str.upper()
-        self.df["Sending Country Code"] = self.df["Sending Country Code"].str.upper()
-        self.df["Receiving Country Code"] = self.df["Receiving Country Code"].str.upper()
-
+    def applyPreprocessing(self, columns:list):
+        size = self.df.shape[1]
+        # # Select only the eramus students researchers
+        # self.df = self.df[self.df["Participant Profile"] == "Learner"]
+        # self.df = self.df[self.df["Activity (mob)"].str.contains("Student")]
+        # self.df = self.df[~self.df['Activity (mob)'].str.contains('traineeship')]
+        # Select only the columns passed in the parameter
+        self.select(columns)
+        
+        # # Convert to upper case all column names
+        # self.df["Sending Organization"] = self.df["Sending Organization"].str.upper()
+        # self.df["Receiving Organization"] = self.df["Receiving Organization"].str.upper()
+        # self.df["Sending Country Code"] = self.df["Sending Country Code"].str.upper()
+        # self.df["Receiving Country Code"] = self.df["Receiving Country Code"].str.upper()
+        
+        print("Removed " + str(size - self.df.shape[1]) + " columns")
+        
+    def select(self, columns:list):
+        if self.deleted is None:
+            self.deleted = pd.DataFrame()
+        
+        # Restore the deleted columns
+        self.restore(columns)
+                
+        # Keep track of the deleted columns
+        _deletedColumns = self.df.columns.difference(columns)
+        if self.deleted.empty:
+            self.deleted = self.df[_deletedColumns]
+        else:
+            self.deleted = pd.concat([self.deleted, self.df[_deletedColumns]], axis=0)
+            # self.deleted.append(_del)
+            
+        self.df = self.df[columns]
     
-    def applyFilter(self, column, value, maxrows=None):
+    def restore(self, columns : list):
+        restored = 0
+        if self.deleted is None or self.deleted.empty:
+            print("No columns to restore")
+            return
+        else:
+            for col in (set(self.deleted.columns) & set(columns)):
+                restored += 1
+                self.df = pd.concat([self.df, self.deleted[col]], axis=0)
+                # self.df.append(self.deleted[col])
+        print("Restored " + str(restored) + " columns")
+            
+    
+    def applyFilter(self, column, value, maxrows=None, criterion='equal'):
         if maxrows is not None:
             self.df = self.df.head(maxrows)
-        self.df = self.df[self.df[column] == value]
+        if criterion == 'equal':
+            self.df = self.df[self.df[column] == value]
+        elif criterion == 'contains':
+            self.df = self.df[self.df[column].str.contains(value)]
 
     def colSize(self):
         return len(self.df.columns)
