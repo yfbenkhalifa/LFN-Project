@@ -51,19 +51,7 @@ class Dataset:
          
     def applyPreprocessing(self, columns:list):
         size = self.df.shape[1]
-        # # Select only the eramus students researchers
-        # self.df = self.df[self.df["Participant Profile"] == "Learner"]
-        # self.df = self.df[self.df["Activity (mob)"].str.contains("Student")]
-        # self.df = self.df[~self.df['Activity (mob)'].str.contains('traineeship')]
-        # Select only the columns passed in the parameter
         self.select(columns)
-        
-        # # Convert to upper case all column names
-        # self.df["Sending Organization"] = self.df["Sending Organization"].str.upper()
-        # self.df["Receiving Organization"] = self.df["Receiving Organization"].str.upper()
-        # self.df["Sending Country Code"] = self.df["Sending Country Code"].str.upper()
-        # self.df["Receiving Country Code"] = self.df["Receiving Country Code"].str.upper()
-        
         print("Removed " + str(size - self.df.shape[1]) + " columns")
         
     def select(self, columns:list):

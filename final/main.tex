@@ -1,0 +1,75 @@
+\include{struct.tex}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{listings}
+\title{Popular Erasmus destinations}
+\author{Alessandro Lotta, Youssef Ben Khalifa}
+\date{\today}
+\begin{document}
+\maketitle \tableofcontents 
+\newpage
+
+\section{Dataset creation and pre-processing}
+To manage the large amount of data we had to work with, we decided to make use of a custom created class called \textbf{Dataset}, in which we define all the 
+methods and objects we used. 
+
+The dataset class makes use of the \textbf{pandas} library, which is a Python library for data manipulation and analysis, with which 
+we perform the import, the preprocessing and the manipulation of the datasets. 
+
+\subsection*{Dataset cleaning}
+The first thing we need to do is to clear out the entries that are either incomplete or not useful for our analysis. To do that, 
+we start by applying a simple filter on the dataset to select only the columns we are interested in, to then remove all 
+the rows that have at least one missing value. 
+From the resulting dataset we can start to filter out the type of entries we need for each of our analysis: for example if we 
+want to perform our analysis only on the students that are currently studying in a university, we can filter out all the entries
+\section{Graph creation}
+The entire project is based on the usage of the python library \textbf{NetworkX} which is a Python library for the creation, manipulation and study of the structure, dynamics, and functions of complex networks.
+through the usage of this library we were able to create the graphs we needed to perform our analysis.
+
+Throught the project m
+\section{Analysis performed}
+    In this section we will go over all the analysis we have performed on the graph we generated from the data we had.
+    As we said in the project proposal we will use two graphs $C = (V_c, E_c)$ and $U = (V_u, E_u)$: 
+    one having countries as nodes and the other one having universities as nodes, 
+    in which the edges represent the amount of students moving/received from one node to the other.
+
+    \subsection*{PageRank coefficient}
+
+    The \textbf{PageRank} coefficient of a node $v$ expresses the "importance" of a node in the graph, this is done by considering the 
+    number of incoming edges and the PageRank coefficient of the nodes that are connected to it. Analitically, the PageRank coefficient of a node $v$ is defined as:
+    \begin{equation}
+        Pr(v) = (1-d) + d \sum_{u \in V} \frac{Pr(u)}{deg(u)}
+    \end{equation}
+    where $d$ is the \textbf{damping factor} given by the user, $V$ is the set of nodes in the graph and $deg(u)$ is the degree of node $u$.
+    \\\\
+    This particular feature is very useful when we compute it on the graph in which we define as the set of nodes and edges, respectively the 
+    countries/universities and as edges both the students that are sent and received. We can find a measure of how important a country or a 
+    university can be in terms of students flow.
+    \subsubsection*{PageRank coefficient implementation}
+    We implemented the PageRank algorithm using the \textbf{NetworkX} library, which is a Python library for the creation, 
+    manipulation and study of the structure, dynamics, and functions of complex networks. The implementaion of the algorithm can be found in the appendix.
+
+    \subsection*{Closseness centrality}
+    The Closseness centrality of a node $v$ is mathematically defined as:
+    \begin{equation}
+        C(v) = \frac{n-1}{\sum_{u \in V} d(v, u)}
+    \end{equation}
+    where $V$ is the set of nodes in the graph and $d(v, u)$ is the length of the shortest path between nodes $v$ and $u$.
+    The Closseness centrality of a node $v$ is yet another measure through which we can obtain useful information from our graphs. In particular, 
+    computing the Closseness centrality on the graph which is defined using 
+    \begin{itemize}
+        \item as ndoes the set of countries and/or universities;
+        \item as edges the amount the students sent from the country/university to another country/university;
+    \end{itemize}
+    we can determine the how "well" the students from that specific country/university are distributed over Europe.
+    \subsubsection*{Closseness centrality implementation}
+    Once again, we used the \textbf{NetworkX} library to implement the Closseness centrality algorithm.
+    The implementation can be found in the appendix.
+
+    \section{Analysis results and comparisons}
+    Each analysis was done on two different machines in order to try and extrapolate a measure of the efficiency of the algorithms we used. 
+    However, the comparisons between the different time results on the algorithm execution are not very reliable, since the machines used
+    are affected by many other factors other that the hardware itself. 
+
+    The main focus of the analysis is on how the algorithms implementations we adopted perform w.r.t. the size of the graph we created.
+\end{document}
