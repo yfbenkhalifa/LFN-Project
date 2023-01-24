@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 from networkx import Graph
-
+import sys
 class CustomGraph(Graph):
+    pageranks : dict = {}
+    
     def __init__(self, data=None, name="", file=None, **attr):
         super().__init__(data=data, name=name, **attr)
         if file is None:

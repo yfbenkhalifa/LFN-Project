@@ -34,6 +34,7 @@ class Dataset:
             mob_df = pd.read_csv(mobility_csv, sep=";")
             frames.append(mob_df)
         self.df = pd.concat(frames) 
+        self.df.drop_duplicates(inplace=True)
         
     def cleanDataframe(self):
         size = self.df.shape[0]
@@ -70,18 +71,20 @@ class Dataset:
             self.deleted = pd.DataFrame()
         
         # Restore the deleted columns
-        self.restore(columns)
+        # self.restore(columns)
                 
         # Keep track of the deleted columns
         _deletedColumns = self.df.columns.difference(columns)
+        
         if self.deleted.empty:
             self.deleted = self.df[_deletedColumns]
         else:
             self.deleted = pd.concat([self.deleted, self.df[_deletedColumns]], axis=0)
-            # self.deleted.append(_del)
+
             
-        self.df = self.df[columns]
-    
+        self.df.drop(_deletedColumns, axis=1, inplace=True)
+
+    ## NEEDS TO BE FIXED ##
     def restore(self, columns : list):
         restored = 0
         if self.deleted is None or self.deleted.empty:
@@ -90,7 +93,10 @@ class Dataset:
         else:
             for col in (set(self.deleted.columns) & set(columns)):
                 restored += 1
-                self.df = pd.concat([self.df, self.deleted[col]], axis=0)
+                _restored = self.deleted[col]
+
+                self.df = pd.concat([self.df, _restored], axis=1, ignore_index=True)
+                print(self.df.columns)
                 # self.df.append(self.deleted[col])
         print("Restored " + str(restored) + " columns")
             
