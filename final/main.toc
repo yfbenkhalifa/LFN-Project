@@ -2,3 +2,4 @@
 \contentsline {section}{\numberline {2}Graph creation}{2}{section.2}%
 \contentsline {section}{\numberline {3}Analysis performed}{2}{section.3}%
 \contentsline {section}{\numberline {4}Analysis results and comparisons}{4}{section.4}%
+\contentsline {section}{\numberline {5}Further analysis and improvements}{4}{section.5}%

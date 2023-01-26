@@ -4,6 +4,7 @@ from networkx import Graph
 import sys
 class CustomGraph(Graph):
     pageranks : dict = {}
+    centrality : dict = {}
     
     def __init__(self, data=None, name="", file=None, **attr):
         super().__init__(data=data, name=name, **attr)
