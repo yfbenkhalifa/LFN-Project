@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import networkx as nx
+import numpy as np
 from networkx import Graph
 import sys
 class CustomGraph(Graph):
@@ -60,3 +61,14 @@ class CustomGraph(Graph):
     def addUniversityNodes(self, universities):
         for university in universities:
             self.add_node(university, university=university)
+            
+    # def computePagerank(self):
+    #     ranks = sorted(nx.pagerank(self, weight='weight').items(), key=lambda x: x[1], reverse=True)
+    #     self.pageranks = dict(ranks)
+
+    #     # Standardize the results
+    #     mean = np.mean(list(self.pageranks.values()))
+    #     print(f"mean: {mean}")
+    #     std = np.std(list(self.pageranks.values()))
+    #     print(f"std: {std}")
+    #     self.pageranks = {k: (v - mean) / std for k, v in self.pageranks.items()}
