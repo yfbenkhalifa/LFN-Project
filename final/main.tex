@@ -2,6 +2,7 @@
 \usepackage{hyperref}
 \usepackage{xurl}
 \usepackage{listings}
+\usepackage{subcaption}
 \title{Popular Erasmus destinations}
 \author{Alessandro Lotta, Youssef Ben Khalifa}
 \date{\today}
@@ -26,17 +27,17 @@ want to perform our analysis only on the students that are currently studying in
 The entire project is based on the usage of the python library \textbf{NetworkX} which is a Python library for the creation, manipulation and study of the structure, dynamics, and functions of complex networks.
 through the usage of this library we were able to create the graphs we needed to perform our analysis.
 
-Throught the project m
+Through the project m
 \section{Analysis performed}
     In this section we will go over all the analysis we have performed on the graph we generated from the data we had.
     As we said in the project proposal we will use two graphs $C = (V_c, E_c)$ and $U = (V_u, E_u)$: 
     one having countries as nodes and the other one having universities as nodes, 
-    in which the edges represent the amount of students moving/received from one node to the other.
+    in which the edges and their weights represent the amount of students moving/received from one node to the other.
 
     \subsection*{PageRank coefficient}
 
     The \textbf{PageRank} coefficient of a node $v$ expresses the "importance" of a node in the graph, this is done by considering the 
-    number of incoming edges and the PageRank coefficient of the nodes that are connected to it. Analitically, the PageRank coefficient of a node $v$ is defined as:
+    number of incoming edges and the PageRank coefficient of the nodes that are connected to it. Analytically, the PageRank coefficient of a node $v$ is defined as:
     \begin{equation}
         Pr(v) = (1-d) + d \sum_{u \in V} \frac{Pr(u)}{deg(u)}
     \end{equation}
@@ -47,23 +48,23 @@ Throught the project m
     university can be in terms of students flow.
     \subsubsection*{PageRank coefficient implementation}
     We implemented the PageRank algorithm using the \textbf{NetworkX} library, which is a Python library for the creation, 
-    manipulation and study of the structure, dynamics, and functions of complex networks. The implementaion of the algorithm can be found in the appendix.
+    manipulation and study of the structure, dynamics, and functions of complex networks. The implementation of the algorithm can be found in the appendix.
 
-    \subsection*{Closseness centrality}
-    The Closseness centrality of a node $v$ is mathematically defined as:
+    \subsection*{Closeness centrality}
+    The Closeness centrality of a node $v$ is mathematically defined as:
     \begin{equation}
         C(v) = \frac{n-1}{\sum_{u \in V} d(v, u)}
     \end{equation}
     where $V$ is the set of nodes in the graph and $d(v, u)$ is the length of the shortest path between nodes $v$ and $u$.
-    The Closseness centrality of a node $v$ is yet another measure through which we can obtain useful information from our graphs. In particular, 
-    computing the Closseness centrality on the graph which is defined using 
+    The Closeness centrality of a node $v$ is yet another measure through which we can obtain useful information from our graphs. In particular, 
+    computing the Closeness centrality on the graph which is defined using 
     \begin{itemize}
-        \item as ndoes the set of countries and/or universities;
+        \item as nodes the set of countries and/or universities;
         \item as edges the amount the students sent from the country/university to another country/university;
     \end{itemize}
-    we can determine the how "well" the students from that specific country/university are distributed over Europe.
-    \subsubsection*{Closseness centrality implementation}
-    Once again, we used the \textbf{NetworkX} library to implement the Closseness centrality algorithm.
+    we can determine the "well" the students from that specific country/university are distributed over Europe.
+    \subsubsection*{Closeness centrality implementation}
+    Once again, we used the \textbf{NetworkX} library to implement the Closeness centrality algorithm.
     The implementation can be found in the appendix.
 
     \section{Analysis results and comparisons}
@@ -72,6 +73,83 @@ Throught the project m
     are affected by many other factors other that the hardware itself. 
 
     The main focus of the analysis is on how the algorithms implementations we adopted perform w.r.t. the size of the graph we created.
+
+    To analyze and compare the results we decided to concentrate only on the Students that participate on the Erasums program while being
+    subscribed to a Master Degree, to do this we applied a filter on the "Education Level" column selecting the value "ISCED-7".
+
+    \subsection*{Countries Analysis}
+    The results obtained are presented by showing the top countries based on the values obtained from PageRank and HITS.
+    \begin{table}[hbtp]
+        \centering
+    \begin{tabular}{l l}
+        \hline
+        \textbf{Country} & \textbf{PageRank} \\ \hline
+        Row 1, Column 1 & Row 1, Column 2 \\
+        Row 2, Column 1 & Row 2, Column 2 \\
+        Row 3, Column 1 & Row 3, Column 2 \\ \hline
+      \end{tabular}
+      \caption{PageRank results}
+      \label{tab:table-label}
+    \end{table}
+    \begin{table}[hbtp]
+        \parbox{.45\linewidth}{
+        \centering
+        \begin{tabular}{l l}
+            \hline
+            \textbf{Country} & \textbf{Authorities} \\ \hline
+            Row 1, Column 1 & Row 1, Column 2 \\
+            Row 2, Column 1 & Row 2, Column 2 \\
+            Row 3, Column 1 & Row 3, Column 2 \\ \hline
+          \end{tabular}
+          \caption{PageRank results}
+          \label{tab:table-label}
+        }
+        \hfill
+        \parbox{.45\linewidth}{
+        \centering
+        \begin{tabular}{l l}
+            \hline
+            \textbf{Country} & \textbf{Hubs} \\ \hline
+            Row 1, Column 1 & Row 1, Column 2 \\
+            Row 2, Column 1 & Row 2, Column 2 \\
+            Row 3, Column 1 & Row 3, Column 2 \\ \hline
+          \end{tabular}
+          \caption{PageRank results}
+          \label{tab:table-label}
+        }
+        \end{table}
+    
+    For the country graphs we also decided to implement the code to generate the geographical heatmaps by using the library
+    'geopandas', so that we can obtain more representative results.
+    The maps were created by only considering Europe and excluding the country Russia
+
+    \begin{figure}[hbtp]
+        \centering
+          \includegraphics[width=0.5\linewidth]{../geoMaps/PR_geoMap.png}
+          \caption{PageRank barplot}
+         \label{fig:1}
+        \end{figure}
+    
+    \begin{figure}[hbtp]
+        \hfill
+        \begin{subfigure}{0.5\linewidth}
+          \centering
+          \includegraphics[width=\linewidth]{../geoMaps/Auth_geoMap.png}
+          \caption{Authorities barplot}
+          \label{fig:2}
+        \end{subfigure}%
+        \hfill
+        \begin{subfigure}{0.5\linewidth}
+          \centering
+          \includegraphics[width=\linewidth]{../geoMaps/Hubs_geoMap.png}
+          \caption{Hubs results}
+          \label{fig:3}
+        \end{subfigure}
+        \caption{Overall barplot}
+        \label{fig:overall}
+      \end{figure}      
+
+    \subsection*{Universities Analysis}
     
     \section{Further analysis and improvements}
     \begin{enumerate}
