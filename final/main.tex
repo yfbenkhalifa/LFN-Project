@@ -110,11 +110,11 @@ At the end we end up with two graphs onto which wee can perform our analysis, ea
 
     To analyze and compare the results we decided to concentrate only on the Students that participate on the Erasums program while being
     subscribed to a Master Degree, to do this we applied a filter on the "Education Level" column selecting the value "ISCED-7".
-    \subsection*{Compution time results and comparisons}
+    \subsection*{Computation time results and comparisons}
     For the test we had at our disposal two different machines:
     \begin{enumerate}
       \item Asus ROG laptop with an AMD Ryzen 9 5900HS CPU @ 3.00->4.6 GHz, Nvidia RTX 3060 (Mobile) Dedicated GPU, 16GB of RAM;
-      \item ----------------PC ALE -----------------;
+      \item HP Pavilion x360 Convertible with Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, Intel(R) UHD Graphics 620;
     \end{enumerate}
     the results are computed separately for both graphs:
 
@@ -122,9 +122,9 @@ At the end we end up with two graphs onto which wee can perform our analysis, ea
     \centering
     \begin{tabular}{l|ll}
     \rowcolor[HTML]{FFFFFF} 
-    \textbf{Algorithm}            & \textbf{Asus ROG}   & \textbf{--- PC ALE ----} \\ \hline
-    \textit{PageRank}             & 0.01854991912841797 & ----------               \\
-    \textit{Hits}                 & 0.1143503189086914  & ------------             \\
+    \textbf{Algorithm}            & \textbf{Asus ROG}   & \textbf{HP Pavilion} \\ \hline
+    \textit{PageRank}             & 0.018549  & 0.049995               \\
+    \textit{Hits}                 & 0.114350  & 0.030997             \\
     \end{tabular}
     \caption{Results for CountryGraph}
   \end{table}
@@ -132,9 +132,9 @@ At the end we end up with two graphs onto which wee can perform our analysis, ea
     \centering
     \begin{tabular}{l|ll}
     \rowcolor[HTML]{FFFFFF} 
-    \textbf{Algorithm}            & \textbf{Asus ROG}   & \textbf{--- PC ALE ----} \\ \hline
-    \textit{PageRank}             & 2.0881154537200928 & ----------               \\
-    \textit{Hits}                 & 2.626953125  & ------------             \\
+    \textbf{Algorithm}            & \textbf{Asus ROG}   & \textbf{HP Pavilion} \\ \hline
+    \textit{PageRank}             & 2.088115 & 2.556013               \\
+    \textit{Hits}                 & 2.626953 & 1.399125             \\
     \end{tabular}
     \caption{Results for UniGraph}
   \end{table}
@@ -195,11 +195,21 @@ At the end we end up with two graphs onto which wee can perform our analysis, ea
     An example of these is the following map obtained with the PageRank results
 
     \begin{figure}[H]
-        \centering
-          \includegraphics[width=\linewidth]{../geoMaps/PR_geoMap.png}
+          \centering
+          \begin{subfigure}{0.8\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{img/PR_geoMap.png}
+            \label{fig:1}
+          \end{subfigure}%
+          \hfill
+          \begin{subfigure}{0.1\textwidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{img/heatmap_bar.png}
+            \label{fig:2}
+          \end{subfigure}
           \caption{PageRank Heatmap}
-         \label{fig:1}
-        \end{figure}     
+          \label{fig:overall}
+        \end{figure}
 
     From the results we obtained it is possible to see that there are some differences between the two methods,
     more in detail in the top results for PageRank and Authorities values there are almost the same countries(France,Italy,Germany,Spain)
@@ -273,12 +283,12 @@ At the end we end up with two graphs onto which wee can perform our analysis, ea
     \section{Team Effort}
     We are listed the contribution of each member of the team and the duration of each stage of the project:
     \begin{itemize}
-      \item \textbf{Dataset Creation} : Youssef Ben Khalifa [2h], 
-      \item \textbf{Dataset Preprocessing and Filtering} : Youssef Ben Khalifa [1.5h], 
-      \item \textbf{Grah creation} : Youssef Ben Khalifa [3h],
-      \item \textbf{PageRank computation} : Youssef Ben Khalifa [1h],
-      \item \textbf{HITS computation} : 
-      \item \textbf{Results visualization} : Youssef Ben Khalifa [1h]
+      \item \textbf{Dataset Creation} : Youssef Ben Khalifa [2h], Alessandro Lotta [1h]
+      \item \textbf{Dataset Preprocessing and Filtering} : Youssef Ben Khalifa [1.5h], Alessandro Lotta [1.5h]
+      \item \textbf{Grah creation} : Youssef Ben Khalifa [3h], Alessandro Lotta [2h]
+      \item \textbf{PageRank computation} : Youssef Ben Khalifa [1h], Alessandro Lotta [2h]
+      \item \textbf{HITS computation} : Alessandro Lotta [1h]
+      \item \textbf{Results visualization} : Youssef Ben Khalifa [1h], Alessandro Lotta [2.5h]
     \end{itemize}
   \section{References}
     \begin{itemize}
