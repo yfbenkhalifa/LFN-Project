@@ -1361,16 +1361,6 @@ INPUT ../geoMaps/PR_geoMap.png
 INPUT ../geoMaps/PR_geoMap.png
 INPUT ../geoMaps/PR_geoMap.png
 INPUT ../geoMaps/PR_geoMap.png
-INPUT ../geoMaps/Auth_geoMap.png
-INPUT ../geoMaps/Auth_geoMap.png
-INPUT ../geoMaps/Auth_geoMap.png
-INPUT ../geoMaps/Auth_geoMap.png
-INPUT ../geoMaps/Auth_geoMap.png
-INPUT ../geoMaps/Hubs_geoMap.png
-INPUT ../geoMaps/Hubs_geoMap.png
-INPUT ../geoMaps/Hubs_geoMap.png
-INPUT ../geoMaps/Hubs_geoMap.png
-INPUT ../geoMaps/Hubs_geoMap.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

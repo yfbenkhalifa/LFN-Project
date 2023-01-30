@@ -77,79 +77,121 @@ Through the project m
     To analyze and compare the results we decided to concentrate only on the Students that participate on the Erasums program while being
     subscribed to a Master Degree, to do this we applied a filter on the "Education Level" column selecting the value "ISCED-7".
 
-    \subsection*{Countries Analysis}
+    \subsection*{Countries Results}
     The results obtained are presented by showing the top countries based on the values obtained from PageRank and HITS.
     \begin{table}[hbtp]
+        \parbox{.25\linewidth}{
         \centering
-    \begin{tabular}{l l}
-        \hline
-        \textbf{Country} & \textbf{PageRank} \\ \hline
-        Row 1, Column 1 & Row 1, Column 2 \\
-        Row 2, Column 1 & Row 2, Column 2 \\
-        Row 3, Column 1 & Row 3, Column 2 \\ \hline
-      \end{tabular}
-      \caption{PageRank results}
-      \label{tab:table-label}
-    \end{table}
-    \begin{table}[hbtp]
-        \parbox{.45\linewidth}{
+        \begin{tabular}{l l}
+            \hline
+            \textbf{Country} & \textbf{PageRank} \\ \hline
+            France & 5.719243 \\
+            Italy & 4.760962 \\
+            Germany & 4.507946 \\
+            Tunisia & 4.419083 \\
+            Spain & 4.150749 \\\hline
+          \end{tabular}
+          \label{tab:table-label}
+        }
+        \hfill
+        \parbox{.25\linewidth}{
         \centering
         \begin{tabular}{l l}
             \hline
             \textbf{Country} & \textbf{Authorities} \\ \hline
-            Row 1, Column 1 & Row 1, Column 2 \\
-            Row 2, Column 1 & Row 2, Column 2 \\
-            Row 3, Column 1 & Row 3, Column 2 \\ \hline
+            France & 9.997428 \\
+            Italy & 5.675233 \\
+            Germany & 3.920258 \\
+            Spain & 1.839538 \\
+            Poland & 1.600657 \\ \hline
           \end{tabular}
-          \caption{PageRank results}
           \label{tab:table-label}
         }
         \hfill
-        \parbox{.45\linewidth}{
+        \parbox{.25\linewidth}{
         \centering
         \begin{tabular}{l l}
             \hline
             \textbf{Country} & \textbf{Hubs} \\ \hline
-            Row 1, Column 1 & Row 1, Column 2 \\
-            Row 2, Column 1 & Row 2, Column 2 \\
-            Row 3, Column 1 & Row 3, Column 2 \\ \hline
+            Tunisia & 11.644793 \\
+            Vietnam & 3.165710 \\
+            Algeria & 2.065967 \\
+            Egypt & 1.954555 \\
+            Montenegro & 1.025746 \\ \hline
           \end{tabular}
-          \caption{PageRank results}
           \label{tab:table-label}
         }
         \end{table}
     
     For the country graphs we also decided to implement the code to generate the geographical heatmaps by using the library
     'geopandas', so that we can obtain more representative results.
-    The maps were created by only considering Europe and excluding the country Russia
+    The geographical maps were created by only considering Europe and excluding the country Russia.
+    An example of these is the following map obtained with the PageRank results
 
-    \begin{figure}[hbtp]
+    \begin{figure}[H]
         \centering
-          \includegraphics[width=0.5\linewidth]{../geoMaps/PR_geoMap.png}
-          \caption{PageRank barplot}
+          \includegraphics[width=\linewidth]{../geoMaps/PR_geoMap.png}
+          \caption{PageRank Heatmap}
          \label{fig:1}
-        \end{figure}
-    
-    \begin{figure}[hbtp]
-        \hfill
-        \begin{subfigure}{0.5\linewidth}
-          \centering
-          \includegraphics[width=\linewidth]{../geoMaps/Auth_geoMap.png}
-          \caption{Authorities barplot}
-          \label{fig:2}
-        \end{subfigure}%
-        \hfill
-        \begin{subfigure}{0.5\linewidth}
-          \centering
-          \includegraphics[width=\linewidth]{../geoMaps/Hubs_geoMap.png}
-          \caption{Hubs results}
-          \label{fig:3}
-        \end{subfigure}
-        \caption{Overall barplot}
-        \label{fig:overall}
-      \end{figure}      
+        \end{figure}     
 
-    \subsection*{Universities Analysis}
+    From the results we obtained it is possible to see that there are some differences between the two methods,
+    more in detail in the top results for PageRank and Authorities values there are almost the same countries(France,Italy,Germany,Spain)
+     instead the Hubs values are completely different.
+    
+    \subsection*{Universities Results}
+    In the case of the results obtained with the UniNodes graph, we can observe that the PageRank and Hits values 
+    have different rankings for top Universities, except for "UNIVERSIDADE DE LISBOA" which is the most important
+    for both PageRank and Authorities.
+    From the table containing the Hubs scores it is clear that the most relevant Universities in Italy are also the 
+    ones that have students traveling to the universities that have high Authorities values. 
+    In particular "UNIVERSITA DEGLI STUDI DI ROMA" and "POLITECNICO DI MILANO" have also the top PageRank values.    
+    \begin{table}[hbtp]
+      \parbox{.25\linewidth}{
+        \centering
+        \begin{tabular}{l l}
+            \hline
+            \textbf{Organization} & \textbf{PageRank} \\ \hline
+            UNIVERSIDADE DE LISBOA & 49.156703 \\
+            Stichting ArtEZ & 45.381767 \\
+            UNIVERSITA DEGLI STUDI DI ROMA LA SAPIENZA & 44.403827 \\
+            Eesti Kunstiakadeemia & 42.335885 \\
+            POLITECNICO DI MILANO & 41.404278\\\hline
+          \end{tabular}
+          \label{tab:table-label}
+        }
+      \end{table}
+
+    \begin{table}[hbtp]
+        \parbox{.25\linewidth}{
+        \centering
+        \begin{tabular}{l l}
+            \hline
+            \textbf{Organization} & \textbf{Authorities} \\ \hline
+            UNIVERSIDADE DE LISBOA & 8.715438e+01 \\
+            NORGES TEKNISK-NATURVITENSKAPELIGE UNIVERSITET.. & 6.628848e+01 \\
+            UNIVERSITAT POLITECNICA DE CATALUNYA & 6.617643e+01 \\
+            UNIVERSITAT POLITECNICA DE VALENCIA & 6.022172e+01 \\
+            KATHOLIEKE UNIVERSITEIT LEUVEN & 5.544156e+01 \\ \hline
+          \end{tabular}
+          \label{tab:table-label}
+        }
+        \end{table}
+        \begin{table}[H]
+        \parbox{.25\linewidth}{
+        \centering
+        \begin{tabular}{l l}
+            \hline
+            \textbf{Organization} & \textbf{Hubs} \\ \hline
+            ALMA MATER STUDIORUM - UNIVERSITA DI BOLOGNA & 9.454380e+01 \\
+            UNIVERSITA DEGLI STUDI DI PADOVA & 7.960611e+01 \\
+            UNIVERSITA DEGLI STUDI DI ROMA LA SAPIENZA & 7.632965e+01 \\
+            POLITECNICO DI MILANO & 7.479510e+01 \\
+            UNIVERSIDADE DE LISBOA & 6.127300e+01 \\ \hline
+          \end{tabular}
+          \label{tab:table-label}
+        }
+        \end{table}
     
     \section{Further analysis and improvements}
     \begin{enumerate}
